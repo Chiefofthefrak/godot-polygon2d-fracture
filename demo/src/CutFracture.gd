@@ -110,7 +110,7 @@ func _input(event: InputEvent) -> void:
 						_cut_line.visible = false
 						_cut_line_last_end_point = Vector3.ZERO
 					else:
-						simpleCut(get_global_mouse_position())
+						#simpleCut(get_global_mouse_position())
 						_cut_line_total_length = 0.0
 						_cut_line_points = []
 						_cut_line.clear_points()

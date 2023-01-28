@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "RigidBody2D",
-"class": "Blob",
-"language": "GDScript",
-"path": "res://demo/src/blob/Blob.gd"
-}, {
 "base": "Node2D",
 "class": "CircleCast",
 "language": "GDScript",
@@ -35,7 +30,6 @@ _global_script_classes=[ {
 "path": "res://polygon2d-fracture/PolygonRestorer.gd"
 } ]
 _global_script_class_icons={
-"Blob": "",
 "CircleCast": "",
 "PolygonFracture": "",
 "PolygonLib": "",
