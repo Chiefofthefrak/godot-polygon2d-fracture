@@ -32,7 +32,7 @@ extends RigidBody2D
 
 
 
-export(Vector2) var rand_linear_velocity_range = Vector2(750.0, 1000.0)
+export(Vector2) var rand_linear_velocity_range = Vector2(0, 0)
 #export(Vector2) var rand_angular_velocity_range = Vector2(-10.0, 10.0)
 export(float) var radius : float = 250.0
 export(int, 0, 5, 1) var smoothing : int = 1
@@ -57,7 +57,7 @@ func _ready() -> void:
 		var poly = PolygonLib.createCirclePolygon(radius, smoothing)
 		setPolygon(poly)
 		
-		linear_velocity = Vector2.RIGHT.rotated(PI * 2.0 * _rng.randf()) * _rng.randf_range(rand_linear_velocity_range.x, rand_linear_velocity_range.y)
+		linear_velocity = Vector2.ZERO 
 		
 		_polygon2d.texture = poly_texture
 		if randomize_texture_properties:
@@ -66,7 +66,9 @@ func _ready() -> void:
 			_polygon2d.texture_rotation = _rng.randf_range(0.0, PI * 2.0)
 			_polygon2d.texture_offset = Vector2(_rng.randf_range(-500, 500), _rng.randf_range(-500, 500))
 
-
+func _process(delta):
+	if not get_node("../../..").levelEnded:
+		linear_velocity = Vector2.ZERO
 
 func getGlobalRotPolygon() -> float:
 	return _polygon2d.global_rotation
